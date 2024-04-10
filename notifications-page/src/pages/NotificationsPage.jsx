@@ -1,12 +1,13 @@
-import { styled, Card, CardContent, Typography } from "@mui/material";
-import theme from "../theme";
+import { styled, Card, CardContent } from "@mui/material";
 
 const NotificationsPage = () => {
 	return (
 		<DefaultNotificationCard>
 			<CardContent>
 				<HeaderContent>
-					<Typography color={`${theme.palette.text.secondary}`} variant="h6">Notifications <SpanNumber>3</SpanNumber></Typography>
+					<Notifications>
+						Notifications <SpanNumber>3</SpanNumber>
+					</Notifications>
 					<AllAsRead>Mark all as Read</AllAsRead>
 				</HeaderContent>
 			</CardContent>
@@ -32,33 +33,41 @@ const DefaultNotificationCard = styled(Card)`
 
 const HeaderContent = styled("div")`
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
 `;
 
-const SpanNumber = styled('span')`
-${({theme}) =>`
+const SpanNumber = styled("span")`
+
 background-color: hsl(219, 85%, 26%);
 margin-left: 4px;
 padding: 1px 10px;
 border-radius: 5px;
-color: #fff
+color: #fff;
+font-size: 14px;
 
 
-`
+
 
 
 
 }
 
 
-`
+`;
 
-const AllAsRead = styled('Typography')`
-${({theme})=>`
+const AllAsRead = styled("Typography")`
+	${({ theme }) => `
 
-color: ${theme.palette.primary.dark}
+color: ${theme.palette.primary.primary}
 `}
+`;
+const Notifications = styled("Typography")`
+	${({ theme }) => `
 
-`
+color: ${theme.palette.text.secondary};
+font-weight: ${theme.typography.h1.fontWeight};
+font-size: 20px
 
-
+`}
+`;
