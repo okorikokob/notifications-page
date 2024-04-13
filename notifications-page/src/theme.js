@@ -22,8 +22,8 @@ const theme = createTheme({
     },
     
     text: {
-      primary: 'hsl(219, 12%, 42%)',
-      secondary: '#000',
+      primary: 'hsl(219, 14%, 63%)',
+      secondary: 'hsl(224, 21%, 14%)',
       main: '#000'
     },
     background: {
@@ -44,7 +44,7 @@ const theme = createTheme({
     },
     h1: {
       // Add your styles for h1
-      fontSize: 20,
+      fontSize: 30,
       fontWeight: 700,
      
     },
