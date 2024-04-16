@@ -3,12 +3,13 @@
 [
     {
         "id": "1",
-       " avatarSrc" : "mark-webber.png",
+       " avatarSrc" : "./assets/images/mark-webber.png",
        "userName": "Mark Webber",
        "postTitle": "My first turnament today!",
        "actionText": "reacted to your reacent post",
        "timeAgo": "1m ago",
-        "read": true
+       "read": false
+        
     },
     {
         "id": "2",

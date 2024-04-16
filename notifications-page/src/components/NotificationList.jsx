@@ -11,6 +11,8 @@ const NotificationList = ({ onNotificationClick }) => {
 					key={user.id}
 					{...user}
                     onClick={() => onNotificationClick(user.id)}
+                    
+                    
 				/>
 			))}
 		</Box>

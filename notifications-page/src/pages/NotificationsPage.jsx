@@ -7,16 +7,31 @@ import data from '../data.json'
 
 
 const NotificationsPage = () => {
-	const [unreadCount, setUnreadCount] = useState(data.length)
+	const [unreadCount, setUnreadCount] = useState(data.filter(n => !n.read).length);
+	const [clickedIds, setClickedIds] = useState(new Set());
 
-	const handleNotificationClick = () => {
-        setUnreadCount((prevCount) => prevCount - 1);
+	const handleNotificationClick = (id) => {
+		setClickedIds(prevClickedIds =>{
+			if(!prevClickedIds.has(id)){
+				const newClickedIds = new Set(prevClickedIds)
+				newClickedIds.add(id);
+				setUnreadCount((prevCount) => prevCount - 1);
+				return newClickedIds
+			}
+			return prevClickedIds
+		})
+		
+
+		
     };
 
+	const handleAllAsRead = () => {
+		setUnreadCount(0);  
+		setClickedIds(new Set(data.map(n => n.id)));  
+	};
 
-	const handleAllAsRead = ()=>{
-		setUnreadCount(0)
-	}
+
+	
 	return (
 		<DefaultNotificationCard >
 			<CardContent>

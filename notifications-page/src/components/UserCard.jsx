@@ -16,12 +16,19 @@ export const UserCard = ({
 	actionText,
 	postTitle,
 	timeAgo,
+  onClick,
+  
+  
+  
 }) => {
 
   const [isUnread, setIsUnread] = useState(true)
 
   const handleClick =()=>{
-    setIsUnread(false)
+    setIsUnread(false);
+    if (onClick){
+      onClick()
+    }
   }
 	return (
 		<DefaultUsersCard onClick={handleClick} isUnread={isUnread}>
