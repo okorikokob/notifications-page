@@ -1,32 +1,30 @@
 import { useState } from "react";
 import { styled, Card, CardContent,  } from "@mui/material";
 import NotificationList from "../components/NotificationList";
-import data from '../data.json'
+import data from '../data.js'
 
 
 
 
 const NotificationsPage = () => {
-	const [unreadCount, setUnreadCount] = useState(data.filter(n => !n.read).length);
+	// const [_unreadCount, setUnreadCount] = useState(data.filter(n => !n.read).length);
 	const [clickedIds, setClickedIds] = useState(new Set());
+	const unreadCount = data.length - clickedIds.size;
 
 	const handleNotificationClick = (id) => {
 		setClickedIds(prevClickedIds =>{
 			if(!prevClickedIds.has(id)){
 				const newClickedIds = new Set(prevClickedIds)
 				newClickedIds.add(id);
-				setUnreadCount((prevCount) => prevCount - 1);
+				// setUnreadCount((prevCount) => prevCount - 1);
 				return newClickedIds
 			}
 			return prevClickedIds
 		})
-		
-
-		
     };
 
 	const handleAllAsRead = () => {
-		setUnreadCount(0);  
+		// setUnreadCount(0);  
 		setClickedIds(new Set(data.map(n => n.id)));  
 	};
 
@@ -41,7 +39,7 @@ const NotificationsPage = () => {
 					</Notifications>
 					<AllAsRead onClick={handleAllAsRead} >Mark all as Read</AllAsRead>
 				</HeaderContent>
-				<NotificationList onNotificationClick={handleNotificationClick} />
+				<NotificationList clickedIds={clickedIds} onNotificationClick={handleNotificationClick} />
 
 				
 			</CardContent>

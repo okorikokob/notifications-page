@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 // import imageOne from "../assets/images/avatar-angela-gray.png";
-import { useState } from "react";
+
 import {
 	styled,
 	Card,
@@ -17,21 +17,10 @@ export const UserCard = ({
 	postTitle,
 	timeAgo,
   onClick,
-  
-  
-  
+  isRead  
 }) => {
-
-  const [isUnread, setIsUnread] = useState(true)
-
-  const handleClick =()=>{
-    setIsUnread(false);
-    if (onClick){
-      onClick()
-    }
-  }
 	return (
-		<DefaultUsersCard onClick={handleClick} isUnread={isUnread}>
+		<DefaultUsersCard onClick={onClick} isRead={isRead}>
 			<CardContent>
 				<CardFlexContainer>
 					<Avatar src={avatarSrc} alt={userName} />
@@ -39,7 +28,7 @@ export const UserCard = ({
 						<Typography>
 							<UserName>{userName}</UserName>
 							{actionText} <PostTitle>{postTitle}</PostTitle>
-							{isUnread && <UnreadDot></UnreadDot>}
+							{!isRead && <UnreadDot></UnreadDot>}
 						</Typography>
 						<TypographyTime>{timeAgo}</TypographyTime>
 					</TypographyContainer>
@@ -50,17 +39,17 @@ export const UserCard = ({
 };
 
 const DefaultUsersCard = styled(Card)`
-	${({ theme, isUnread }) => `
+	${({ theme, isRead }) => `
     max-width: 100%;
     margin-top: ${theme.spacing(2)};
     background-color: hsl(210, 60%, 98%);
     box-shadow: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease; // Smooth transition for background color
+    transition: background-color 0.3s ease; 
 
    
-      background-color: ${isUnread ? 'hsl(210, 60%, 98%)' : 'hsl(0, 0%, 100%)'}; // Slightly change color on hover
+      background-color: ${!isRead ? 'hsl(210, 60%, 98%)' : 'hsl(0, 0%, 100%)'}; 
    
 
     ${theme.breakpoints.down("sm")} {
