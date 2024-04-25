@@ -10,8 +10,9 @@ const NotificationList = ({ clickedIds = new Set(), onNotificationClick }) => {
 				<UserCard
 					key={user.id}
 					{...user}
-                    onClick={() => onNotificationClick(user.id)}
+                    markAsRead={() => onNotificationClick(user.id)}
                     isRead={clickedIds.has(user.id)}
+						
                     
 				/>
 			))}

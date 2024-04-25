@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 // import imageOne from "../assets/images/avatar-angela-gray.png";
-
+import { useState } from "react";
 import {
 	styled,
 	Card,
@@ -16,11 +16,19 @@ export const UserCard = ({
 	actionText,
 	postTitle,
 	timeAgo,
-  onClick,
-  isRead  
+	description,
+	markAsRead,
+	isRead,
 }) => {
+	const [isOpen, setIsOpen] = useState(false);
+
+	const handleCardClick = () => {
+		setIsOpen(!isOpen);
+		if (!isRead) markAsRead();
+	};
+
 	return (
-		<DefaultUsersCard onClick={onClick} isRead={isRead}>
+		<DefaultUsersCard onClick={handleCardClick} isRead={isRead}>
 			<CardContent>
 				<CardFlexContainer>
 					<Avatar src={avatarSrc} alt={userName} />
@@ -31,6 +39,7 @@ export const UserCard = ({
 							{!isRead && <UnreadDot></UnreadDot>}
 						</Typography>
 						<TypographyTime>{timeAgo}</TypographyTime>
+						{isOpen ? <CardDescription>{description}</CardDescription> : null}
 					</TypographyContainer>
 				</CardFlexContainer>
 			</CardContent>
@@ -49,7 +58,7 @@ const DefaultUsersCard = styled(Card)`
     transition: background-color 0.3s ease; 
 
    
-      background-color: ${!isRead ? 'hsl(210, 60%, 98%)' : 'hsl(0, 0%, 100%)'}; 
+      background-color: ${!isRead ? "hsl(210, 60%, 98%)" : "hsl(0, 0%, 100%)"}; 
    
 
     ${theme.breakpoints.down("sm")} {
@@ -60,7 +69,7 @@ const DefaultUsersCard = styled(Card)`
 
 const CardFlexContainer = styled(Box)`
 	display: flex;
-	align-items: center;
+
 	gap: ${({ theme }) => theme.spacing(2)};
 `;
 
@@ -80,10 +89,10 @@ const PostTitle = styled("span")`
 	font-weight: ${({ theme }) => theme.typography.h1.fontWeight};
 	margin-left: 5px;
 	font-size: ${({ theme }) => theme.typography.h1.fontSize};
-  &:hover {
-    color: ${({ theme }) => theme.palette.primary.dark}; 
-    cursor: pointer; 
-  }
+	&:hover {
+		color: ${({ theme }) => theme.palette.primary.dark};
+		cursor: pointer;
+	}
 `;
 const TypographyTime = styled(Typography)`
 	font-size: ${({ theme }) => theme.typography.body1.fontSize};
@@ -98,4 +107,16 @@ const UnreadDot = styled("span")`
 	background-color: ${({ theme }) => theme.palette.primary.main};
 
 	margin-left: 5px;
+`;
+
+const CardDescription = styled("div")`
+	padding: 20px;
+	margin-top: 15px;
+	border: 1px solid #c3c0c0;
+	background: #fff;
+	border-radius: 5px;
+	&:hover {
+		background: ${({ theme }) => theme.palette.primary.contrastText};
+		border: none;
+	}
 `;

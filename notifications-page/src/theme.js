@@ -18,7 +18,7 @@ const theme = createTheme({
       light: 'hsl(210, 60%, 98%)',
       grayishBlue: 'hsl(219, 14%, 63%)',
       darkBlue: 'hsl(224, 21%, 14%)',
-      contrastText: 'hsl(0, 0%, 100%)',
+      contrastText: 'hsl(205, 33%, 90%)',
     },
     
     text: {

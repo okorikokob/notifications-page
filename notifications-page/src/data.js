@@ -15,6 +15,7 @@ export default [
 		"postTitle": "My first turnament today!",
 		"actionText": "reacted to your reacent post",
 		"timeAgo": "1m ago",
+		description: "Hello, thanks for setting up the chess club. i've been a member for a few weeks now and i'm already having alot of fun and improving my game"
 		
 	},
 	{
@@ -24,6 +25,7 @@ export default [
 		"postTitle": "",
 		"actionText": "followed you",
 		"timeAgo": "5m ago",
+		description: "Hello, thanks for setting up the chess club. i've been a member for a few weeks now and i'm already having alot of fun and improving my game"
 	},
 
 	{
@@ -33,6 +35,7 @@ export default [
 		"postTitle": "Chess club",
 		"actionText": "has joined the group",
 		"timeAgo": "1 day ago",
+		description: "Hello, thanks for setting up the chess club. i've been a member for a few weeks now and i'm already having alot of fun and improving my game"
 	},
 	{
 		id: 4,
@@ -41,6 +44,7 @@ export default [
 		"postTitle": "",
 		"actionText": "sent you a private message",
 		"timeAgo": "1 day ago",
+		description: "Hello, thanks for setting up the chess club. i've been a member for a few weeks now and i'm already having alot of fun and improving my game"
 	},
 	{
 		id: 5,
@@ -49,6 +53,7 @@ export default [
 		"postTitle": "",
 		"actionText": "commented on your picture",
 		"timeAgo": "1 week ago",
+		description: "Hello, thanks for setting up the chess club. i've been a member for a few weeks now and i'm already having alot of fun and improving my game"
 	},
 	{
 		id: 6,
@@ -57,6 +62,7 @@ export default [
 		"postTitle": "5-end game strategies to increase your win rate",
 		"actionText": "reacted to your reacent post",
 		"timeAgo": "2 weeks ago",
+		description: "Hello, thanks for setting up the chess club. i've been a member for a few weeks now and i'm already having alot of fun and improving my game"
 	},
 	{
 		id: 7,
@@ -65,5 +71,6 @@ export default [
 		"postTitle": "Chess Club",
 		"actionText": "left the group",
 		"timeAgo": "2 weeks ago",
+		description: "Hello, thanks for setting up the chess club. i've been a member for a few weeks now and i'm already having alot of fun and improving my game"
 	},
 ];
